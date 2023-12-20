@@ -17,8 +17,10 @@ mod = "mod1"
 
 # Set apps to be quick launched.
 appTerm = "alacritty"
-appRun = "dmenu_run"
+appRun = "rofi -show drun"
 appText = "nvim"
+appBrowser = "google-chrome-stable"
+appFile = "thunar"
 
 # Run script to handle starting the compositor and setting the wallpaper.
 @hook.subscribe.startup
@@ -67,9 +69,15 @@ keys = [
     # Launch commands.
     Key([mod], "Return", lazy.spawn(appTerm), desc = "Alt + Enter opens a terminal."),
     Key([mod], "space", lazy.spawn(appRun), desc = "Alt + Space opens the run launcher."),
+    Key([mod], "c", lazy.spawn(appBrowser), desc = "Alt + C opens the web browser."),
+    Key([mod], "b", lazy.spawn(appFile), desc = "Alt + B opens the file browser."),
     
     # System commands.
     Key([mod, "control"], "r", lazy.reload_config(), desc = "Control + Alt + R reloads the current qtile config."),
+
+    # Fix games. From reddit.
+    # https://www.reddit.com/r/DistroTube/comments/ofmifx/qtile_doesnt_work_well_with_fullscreen_steam_games/
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc = "Alt + F toggles fullscreen."),
 
 ]
 
@@ -125,6 +133,10 @@ def initWidgetsList():
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH,),
+
+        widget.QuickExit(
+            default_text = "logout",
+        ),
 
         widget.Clock(),
 

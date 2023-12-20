@@ -1,6 +1,13 @@
 # Jack Tench 2023
 # Alacritty config
 
+shell: fish
+
+font:
+  normal:
+    family: JetBrains Mono Nerd
+  size: 14
+
 # Nord Theme:
 # Copyright (c) 2016-present Sven Greb <development@svengreb.de>
 # This source code is licensed under the MIT license found in the license file.
