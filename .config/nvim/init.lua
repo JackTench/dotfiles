@@ -21,3 +21,6 @@ require("options")
 
 -- Load plugins file.
 require("lazy").setup("plugins")
+
+-- Load LSP stuff.
+require("lsp-config")

@@ -1,9 +1,12 @@
--- Jack Tench 2023
--- neovim config
--- lsp-config.lua
+local lsp_zero = require("lsp-zero")
 
-local lsp = require("lsp-zero")
-lsp.preset("recommended")
+lsp_zero.on_attach(function(client, bufnr)
+	lsp_zero.default_keymaps({buffer = bufnr})
+end)
 
-lsp.nvim_workspace()
-lsp.setup()
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	handlers = {
+		lsp_zero.default_setup,
+	},
+})
