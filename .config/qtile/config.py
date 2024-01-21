@@ -109,7 +109,9 @@ layouts = [
     # Columns layout. I use an ultrawide, so this is useful.
     layout.MonadThreeCol(**layoutCfg),
     # Monocle layout.
-    layout.Max(**layoutCfg),
+    layout.Max(
+        margin = 0,
+    ),
 ]
 
 # Configure widgets on bar.
@@ -126,7 +128,9 @@ def initWidgetsList():
         ),
         
         # Layout icon.
-        widget.CurrentLayoutIcon(),
+        widget.CurrentLayoutIcon(
+            scale = 0.7,
+        ),
 
         # Current focused window.
         widget.WindowName(),
