@@ -92,7 +92,7 @@ return {
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		lazy = true,
-		config = falsem
+		config = false
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -124,4 +124,11 @@ return {
 		},
 	},
 
+	-- LazyGit
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
 }
