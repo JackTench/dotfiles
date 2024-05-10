@@ -17,7 +17,7 @@ mod = "mod1"
 
 # Set apps to be quick launched.
 appTerm = "alacritty"
-appRun = "rofi -show drun"
+appRun = "./.config/rofi/launchers/type-2/launcher.sh"
 appText = "nvim"
 appBrowser = "google-chrome-stable"
 appFile = "thunar"
@@ -65,6 +65,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc = "Alt + Shift + L moves the focused window right."),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc = "Alt + Shift + J moves the focused window down."),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc = "Alt + Shift + K moves the focused window up."),
+    Key([mod], "w", lazy.window.toggle_floating(), desc = "Alt + W toggles floating mode"),
 
     # Launch commands.
     Key([mod], "Return", lazy.spawn(appTerm), desc = "Alt + Enter opens a terminal."),
@@ -78,6 +79,9 @@ keys = [
     # Fix games. From reddit.
     # https://www.reddit.com/r/DistroTube/comments/ofmifx/qtile_doesnt_work_well_with_fullscreen_steam_games/
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc = "Alt + F toggles fullscreen."),
+
+    # Screen record.
+    Key([mod], "g", lazy.spawn("/home/jack/.config/gpu-screen-recorder/scripts/save-replay.sh"), desc = "Alt + G captures the screen (video).")
 
 ]
 
@@ -134,6 +138,7 @@ def initWidgetsList():
 
         # Current focused window.
         widget.WindowName(),
+        #widget.TaskList(),
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH,),
@@ -201,5 +206,5 @@ cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-auto_minimize = True
+auto_minimize = False
 wl_input_rules = None
