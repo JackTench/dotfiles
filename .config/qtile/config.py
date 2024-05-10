@@ -80,8 +80,8 @@ keys = [
     # https://www.reddit.com/r/DistroTube/comments/ofmifx/qtile_doesnt_work_well_with_fullscreen_steam_games/
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc = "Alt + F toggles fullscreen."),
 
-    # Screen record.
-    Key([mod], "g", lazy.spawn("/home/jack/.config/gpu-screen-recorder/scripts/save-replay.sh"), desc = "Alt + G captures the screen (video).")
+    # Screenshot
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc = "Alt + Shift + S captures a screenshot."), 
 
 ]
 
