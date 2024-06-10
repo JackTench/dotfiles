@@ -1,26 +1,12 @@
--- Jack Tench 2023
+-- Jack Tench 2024
 -- neovim config
--- init.lua
 
--- Load package manager.
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
+require("user/options")
+require("user/maps")
 
--- Load opts file.
-require("options")
-
--- Load plugins file.
+-- Install package manager and plugins.
+require("lazy/bootstrap")
 require("lazy").setup("plugins")
 
--- Load LSP stuff.
-require("lsp-config")
+-- Load LSP config.
+require("user/lsp")

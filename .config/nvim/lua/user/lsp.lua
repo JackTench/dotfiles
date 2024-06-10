@@ -1,3 +1,6 @@
+-- Jack Tench 2024
+-- neovim config
+
 local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
@@ -7,6 +10,6 @@ end)
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	handlers = {
-		lsp_zero.default_setup,
-	},
+		lsp_zero.default_setup
+	}
 })
