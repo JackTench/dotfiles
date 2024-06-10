@@ -131,4 +131,9 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 	},
+
+	-- VimTeX for auto-compiling LaTeX documents.
+	{
+		"lervag/vimtex",
+	}
 }

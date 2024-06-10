@@ -12,3 +12,6 @@ opt.tabstop = 4
 -- Line numbers
 opt.number = true
 opt.relativenumber = false
+
+-- VimTeX config.
+vim.g.vimtex_view_method = "zathura"
