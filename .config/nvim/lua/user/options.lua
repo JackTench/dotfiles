@@ -12,5 +12,8 @@ opt.softtabstop = 4
 opt.number = true
 opt.relativenumber = false
 
+-- Mouse support
+opt.mousemoveevent = true
+
 -- VimTeX config.
 vim.g.vimtex_view_method = "zathura"

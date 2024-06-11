@@ -78,7 +78,19 @@ return {
 	-- Prettier syntax highlighting.
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate"
+		build = ":TSUpdate",
+		-- Handle treesitter config below.
+		-- TODO: Move this to another file and de-ugly.
+		config = function()
+			require("nvim-treesitter.configs").setup {
+				sync_install = false,
+				auto_install = true,
+				ignore_install = { "toml" },
+				highlight = {
+					enable = true
+				}
+			}
+		end
 	},
 
 	-- HTML colour code highlighting.
@@ -98,6 +110,7 @@ return {
 
 	{
 		"alec-gibson/nvim-tetris",
+		-- Lazy load on Tetris command.
 		cmd = { "Tetris" }
 	},
 
@@ -152,6 +165,7 @@ return {
 	-- Preview markdown files.
 	{
 		"iamcco/markdown-preview.nvim",
+		-- Lazy load on given commands whilst in markdown documents.
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownpreviewStop" },
 		ft = { "markdown" },
 		build = function()
@@ -162,6 +176,7 @@ return {
 	-- Manage Cargo dependencies in Rust.
 	{
 		"saecki/crates.nvim",
+		-- Lazy load when editing Rust cargo files.
 		event = { "BufRead Cargo.toml" },
 		config = function()
 			require("crates").setup()
@@ -173,6 +188,19 @@ return {
 		"m4xshen/autoclose.nvim",
 		config = function()
 			require("autoclose").setup()
+		end
+	},
+
+	-- Auto commenting keybinds.
+	{
+		"numToStr/Comment.nvim"
+	},
+
+	-- Mouse hover hints from LSP.
+	{
+		"soulis-1256/eagle.nvim",
+		config = function()
+			require("eagle").setup()
 		end
 	},
 
