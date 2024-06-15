@@ -33,7 +33,9 @@ return {
 			"nvim-tree/nvim-web-devicons"
 		},
 		config = function()
-			require("dashboard").setup()
+			require("dashboard").setup({
+				shortcut_type = "number"
+			})
 		end
 	},
 
