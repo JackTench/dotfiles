@@ -190,12 +190,25 @@ return {
 		end
 	},
 
-	-- Auto close brackets, etc.
 	{
-		"m4xshen/autoclose.nvim",
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true
+	},
+
+	-- Auto close web dev tags.
+	{
+		"windwp/nvim-ts-autotag",
 		config = function()
-			require("autoclose").setup()
+			require("nvim-ts-autotag").setup({
+				filetypes = {"html", "javascript", "typescript", "react"},
+			})
 		end
+	},
+
+	-- Set settings based on file type
+	{
+		"tpope/vim-sleuth"
 	},
 
 	-- Auto commenting keybinds.
