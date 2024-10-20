@@ -126,8 +126,11 @@ def initWidgetsList():
         
         # Workspace switcher.
         widget.GroupBox(
-            highlight_method = "text",
+            highlight_method = "block",
+            rounded = False,
             disable_drag = True,
+            highlight_color = nord["purple"],
+            active = nord["snowstorm1"]
         ),
         
         # Layout icon.

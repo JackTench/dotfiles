@@ -25,6 +25,11 @@ return {
 		}
 	},
 
+	-- Dressing UI plugin.
+	{
+		"stevearc/dressing.nvim"
+	},
+
 	-- Dashboard (doom emacs)
 	{
 		"nvimdev/dashboard-nvim",
@@ -204,6 +209,11 @@ return {
 		config = function()
 			require("eagle").setup()
 		end
+	},
+
+	-- Opening the wrong file. (Fuzzy finding?)
+	{
+		"mong8se/actually.nvim"
 	},
 
 }
