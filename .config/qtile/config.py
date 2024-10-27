@@ -77,12 +77,13 @@ keys = [
     # System commands.
     Key([mod, "control"], "r", lazy.reload_config(), desc = "Control + Alt + R reloads the current qtile config."),
 
-    # Fix games. From reddit.
-    # https://www.reddit.com/r/DistroTube/comments/ofmifx/qtile_doesnt_work_well_with_fullscreen_steam_games/
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc = "Alt + F toggles fullscreen."),
 
     # Screenshot
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc = "Alt + Shift + S captures a screenshot."), 
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc = "Alt + Shift + S captures a screenshot."),
+
+    # Volume utility
+    Key([mod], "v", lazy.spawn("pavucontrol"), desc = "Alt + V opens Pavu volume control."),
 
 ]
 
@@ -141,6 +142,14 @@ def initWidgetsList():
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH,),
+
+        # Volume widget.
+        widget.TextBox(
+            "\uf028 ",
+            mouse_callbacks = {
+                "Button1": lazy.spawn("pavucontrol")
+            },
+        ),
 
         widget.QuickExit(
             default_text = "logout",
