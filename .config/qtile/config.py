@@ -85,6 +85,9 @@ keys = [
     # Volume utility
     Key([mod], "v", lazy.spawn("pavucontrol"), desc = "Alt + V opens Pavu volume control."),
 
+    # minilaunch
+    Key([mod], "m", lazy.spawn("alacritty -e minilaunch"), desc = "Alt + M opens minilaunch."),
+
 ]
 
 # Define keybinds for dealing with workspaces.
@@ -138,7 +141,6 @@ def initWidgetsList():
 
         # Current focused window.
         widget.WindowName(),
-        #widget.TaskList(),
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH,),
@@ -156,6 +158,10 @@ def initWidgetsList():
         ),
 
         widget.Clock(),
+        
+        widget.Systray(
+            hide_crash = False,
+        ),
 
     ]
     return widgetsList
@@ -169,15 +175,16 @@ def initWidgetsBtm():
 # Top monitor.
 def initWidgetsTop():
     widgetsListTop = initWidgetsList()
-    # TODO: Filter list to remove systray.
+    widgetsTopLength = len(widgetsListTop)
+    widgetsListTop.pop(widgetsTopLength - 1)
     return widgetsListTop
 
 # Configure monitor(s).
 screens = [
     # Bottom monitor is my main.
-    Screen(top=bar.Bar(widgets=initWidgetsList(), size=32, background = nord["polarnight1"], margin = 8)),
+    Screen(top=bar.Bar(widgets=initWidgetsBtm(), size=32, background = nord["polarnight1"], margin = 8)),
     # Top monitor is my secondary.
-    Screen(top=bar.Bar(widgets=initWidgetsList(), size=32, background = nord["polarnight1"], margin = 8)),
+    Screen(top=bar.Bar(widgets=initWidgetsTop(), size=32, background = nord["polarnight1"], margin = 8)),
 ]
 
 # Configure floating rules and layouts.
