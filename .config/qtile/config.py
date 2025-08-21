@@ -36,7 +36,7 @@ layoutCfg = {
     # Size of border around windows.
     "border_width": 2,
     # Colour of borders for focused and unfocused windows.
-    "border_focus": nord["frost2"],
+    "border_focus": nord["purple"],
     "border_normal": nord["polarnight4"],
 }
 
@@ -124,7 +124,6 @@ layouts = [
 ]
 
 # Configure widgets on bar.
-# This seems to only work in a function? Code by dt (Derek Taylor)
 def initWidgetsList():
     widgetsList = [
         
@@ -135,7 +134,9 @@ def initWidgetsList():
         ),
         
         # Layout icon.
-        widget.CurrentLayoutIcon(
+        # Icons were merged from CurrentLayoutIcon() into CurrentLayout()
+        # TODO: Fix this, revert back to being an icon.
+        widget.CurrentLayout(
             scale = 0.7,
         ),
 
