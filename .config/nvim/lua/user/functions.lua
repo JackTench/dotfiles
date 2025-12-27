@@ -4,6 +4,7 @@
 local M = {}
 
 local opt = vim.opt
+local getlang = require("user/getlang")
 
 -- Function to toggle indentation size.
 -- Taken from wins1ey's dotfiles (github.com/wins1ey/.files)
@@ -19,6 +20,21 @@ function M.toggle_indent()
 		opt.tabstop = 4
 		opt.softtabstop = 4
 		print("Indentation set to 4 spaces.")
+	end
+end
+
+-- Function to format based on currently open project.
+function M.format_code()
+	local project_type = get_project_type()
+
+	if project_type == "rust" then
+		vim.cmd("!cargo fmt")
+		print("Project formatted.")
+	elseif project_type == "node" then
+		vim.cmd("!npm run format")
+		print("Project formatted.")
+	else
+		print("No configured project detected.")
 	end
 end
 

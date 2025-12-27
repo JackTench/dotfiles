@@ -1,4 +1,4 @@
--- Jack Tench 2024
+-- Jack Tench 2025
 -- neovim config
 
 local opt = vim.opt
@@ -11,6 +11,9 @@ opt.softtabstop = 4
 -- Line numbers.
 opt.number = true
 opt.relativenumber = false
+
+-- Wrap
+vim.opt.wrap = false
 
 -- Mouse support
 opt.mousemoveevent = true
