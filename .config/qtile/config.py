@@ -10,6 +10,7 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
+import hooks
 from cols import nord
 
 # Set mod key to alt.
