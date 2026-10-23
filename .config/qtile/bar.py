@@ -2,6 +2,12 @@ from libqtile import bar, widget
 
 from cols import rosepine
 
+# qtile-extras' StatusNotifier supports context menus; fall back to core widget if not installed.
+try:
+    from qtile_extras.widget import StatusNotifier
+except ImportError:
+    StatusNotifier = widget.StatusNotifier
+
 def init_widgets():
     widgets_list = [
         # Workspace switcher.
@@ -48,7 +54,7 @@ def init_widgets():
         ),
 
         # Systray.
-        widget.StatusNotifier(
+        StatusNotifier(
             padding = 6,
             icon_size = 16,
         ),
