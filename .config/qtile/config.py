@@ -1,15 +1,15 @@
 import os
-import re
 import subprocess
 from collections.abc import Callable
 
 import libqtile.resources
 from libqtile import bar, hook, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Output, Screen
+from libqtile.config import Click, Drag, Group, Key, Output, Screen
 from libqtile.lazy import lazy
 from libqtile.backend.wayland import InputConfig
 
 from cols import rosepine
+from floating import floating_layout
 from screens import screens
 
 # Run script to handle autostart.
@@ -92,30 +92,5 @@ layouts = [
     # Floating layout.
     layout.Floating(),
 ]
-
-# Configure some windows to always float.
-float_wm_classes = [
-    "confirmreset",
-    "makebranch",
-    "maketag",
-    "ssh-askpass",
-    "pavucontrol",
-    "org.pulseaudio.pavucontrol",
-    "Eclipse",
-]
-floating_layout = layout.Floating(
-    float_rules = [
-        *layout.Floating.default_float_rules,
-        Match(title = "branchdialog"),
-        Match(title = "pinentry"),
-        # Prism Launcher's download/progress dialog.
-        Match(wm_class = "org.prismlauncher.PrismLauncher", title = re.compile(r"^Please wait\.\.\.")),
-        # Steam's friends list.
-        Match(wm_class = "steam", title = "Friends List"),
-        # Thunar's dialogs (Properties, file operation progress, etc.), but not its main windows.
-        Match(wm_class = "thunar", title = re.compile(r"^(?!.* - Thunar$)")),
-        *(Match(wm_class = wm_class) for wm_class in float_wm_classes),
-    ]
-)
 
 reconfigure_screens = True
