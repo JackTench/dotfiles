@@ -2,6 +2,7 @@ from libqtile import bar, widget
 
 from cols import rosepine
 from widgets.audio import init_volume
+from widgets.mouse import MouseBattery
 
 # qtile-extras' StatusNotifier supports context menus; fall back to core widget if not installed.
 try:
@@ -45,6 +46,16 @@ def init_widgets():
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH),
+
+        # Mouse battery indicator.
+        MouseBattery(
+            font = "JetBrainsMono Nerd Font",
+            fontsize = 14,
+            foreground = rosepine["text"],
+            low_foreground = rosepine["love"],
+            padding = 10,
+            device_name = "DeathAdder",
+        ),
 
         # Volume icon: click to pick speakers or headphones, scroll to change volume.
         init_volume(),
