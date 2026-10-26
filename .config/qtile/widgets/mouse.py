@@ -1,4 +1,4 @@
-from openrazer.client import DeviceManager
+from openrazer.client import DeviceManager  # type: ignore[import-untyped]
 
 from libqtile.log_utils import logger
 from libqtile.widget import base
