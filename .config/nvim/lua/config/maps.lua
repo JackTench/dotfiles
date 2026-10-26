@@ -14,14 +14,9 @@ map("n", "<leader>id", "", vim.tbl_extend("force", default_opts, {
 	callback = indent.toggle_indent
 }))
 map("n", "<leader>laz", ":Lazy<CR>", default_opts)
+local terminal = require("config/terminal")
 map("n", "<leader>ter", "", vim.tbl_extend("force", default_opts, {
-	callback = function()
-		-- Open a terminal at the bottom of the screen.
-		-- <Esc><Esc> stops insert mode.
-		-- Then use :q to close.
-		vim.cmd("botright split | terminal")
-		vim.cmd.startinsert()
-	end
+	callback = terminal.open_terminal
 }))
 map("t", "<Esc><Esc>", "<C-\\><C-n>", default_opts)
 map("n", "<leader>ra", ":Ranger<CR>", default_opts)
