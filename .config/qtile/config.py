@@ -55,6 +55,7 @@ keys = [
     Key([mod], "space", lazy.spawn("rofi -show drun"), desc = "Spawn run launcher"),
     Key([mod], "c", lazy.spawn("google-chrome-stable"), desc = "Spawn web browser"),
     Key([mod], "b", lazy.spawn("thunar"), desc = "Spawn file manager"),
+    Key([mod], "v", lazy.spawn("pavucontrol -t 3"), desc = "Spawn volume control"),
 
     # System keybinds.
     Key([mod, "control"], "r", lazy.reload_config(), desc = "Reload qtile config"),
