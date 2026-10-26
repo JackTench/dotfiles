@@ -1,4 +1,5 @@
 from libqtile import widget
+from libqtile.lazy import lazy
 
 from cols import rosepine
 
@@ -27,6 +28,8 @@ def init_volume():
         menu_border = rosepine["overlay"],
         menu_border_width = 1,
         highlight_colour = rosepine["highlight_med"],
+        # Right click opens pavucontrol on the output devices tab.
+        mouse_callbacks = {"Button3": lazy.spawn("pavucontrol -t 3")},
     )
     # Left click opens the output picker and middle click mutes (the reverse of the defaults).
     if hasattr(volume, "select_sink"):
