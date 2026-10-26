@@ -1,6 +1,7 @@
 import os
 import subprocess
 from collections.abc import Callable
+from typing import Any
 
 import libqtile.resources
 from libqtile import bar, hook, layout, qtile, widget
@@ -9,7 +10,7 @@ from libqtile.lazy import lazy
 from libqtile.backend.wayland import InputConfig
 
 from cols import rosepine
-from floating import floating_layout
+from floating import float_rules
 from screens import screens
 
 # Run script to handle autostart.
@@ -76,7 +77,7 @@ mouse = [
 ]
 
 # Set tiling layouts.
-layout_cfg = {
+layout_cfg: dict[str, Any] = {
     "border_width": 1,
     # Set colours for borders.
     "border_focus": rosepine["rose"],
@@ -90,7 +91,10 @@ layouts = [
     # Columns layout from XMonad.
     layout.MonadThreeCol(**layout_cfg),
     # Floating layout.
-    layout.Floating(),
+    layout.Floating(**layout_cfg),
 ]
+
+# Windows that float on top of the tiling layouts.
+floating_layout = layout.Floating(float_rules = float_rules, **layout_cfg)
 
 reconfigure_screens = True

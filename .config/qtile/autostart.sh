@@ -12,5 +12,5 @@ wlr-randr \
     --mode 1920x1080 \
     --pos 320,-1080
 
-# Set wallpaper.
-swaybg -i ~/Wallpapers/block-wave-moon.png &
+# Set background to rose pine "surface".
+swaybg -c "#1f1d2e" &
