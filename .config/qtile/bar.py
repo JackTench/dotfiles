@@ -1,6 +1,7 @@
 from libqtile import bar, widget
 
 from cols import rosepine
+from widgets.arch import init_arch_updates
 from widgets.audio import init_volume
 from widgets.mouse import MouseBattery
 
@@ -46,6 +47,9 @@ def init_widgets():
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH),
+
+        # Arch updates.
+        init_arch_updates(),
 
         # Mouse battery indicator.
         MouseBattery(
