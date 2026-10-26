@@ -9,6 +9,7 @@ vim.g.mapleader = " "
 
 -- Binds/maps.
 map("n", "<leader>so", ":source $MYVIMRC<CR>", default_opts)
+map("n", "<leader>laz", ":Lazy<CR>", default_opts)
 map("n", "<leader>ra", ":Ranger<CR>", default_opts)
 map("n", "<leader>gg", ":LazyGit<CR>", default_opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
