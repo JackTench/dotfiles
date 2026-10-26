@@ -9,3 +9,13 @@ vim.g.mapleader = " "
 
 -- Binds/maps.
 map("n", "<leader>so", ":source $MYVIMRC<CR>", default_opts)
+
+-- LSP keymaps. (buffer-local, only set once a server attaches)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+			buffer = ev.buf,
+			desc = "LSP: Go to definition",
+		})
+	end,
+})
