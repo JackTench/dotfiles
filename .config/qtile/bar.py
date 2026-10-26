@@ -1,6 +1,7 @@
 from libqtile import bar, widget
 
 from cols import rosepine
+from widgets.audio import init_volume
 
 # qtile-extras' StatusNotifier supports context menus; fall back to core widget if not installed.
 try:
@@ -44,6 +45,9 @@ def init_widgets():
 
         # Spacer to right.
         widget.Spacer(length = bar.STRETCH),
+
+        # Volume icon: click to pick speakers or headphones, scroll to change volume.
+        init_volume(),
 
         # Clock.
         widget.Clock(
