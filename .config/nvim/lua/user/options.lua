@@ -18,6 +18,7 @@ vim.wo.wrap = false
 vim.wo.cursorline = true
 
 vim.o.mouse = "a"
+vim.o.mousemoveevent = true
 
 vim.o.termguicolors = true
 
