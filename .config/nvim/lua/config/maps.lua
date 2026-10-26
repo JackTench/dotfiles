@@ -9,6 +9,10 @@ vim.g.mapleader = " "
 
 -- Binds/maps.
 map("n", "<leader>so", ":source $MYVIMRC<CR>", default_opts)
+local indent = require("config/indent")
+map("n", "<leader>id", "", vim.tbl_extend("force", default_opts, {
+	callback = indent.toggle_indent
+}))
 map("n", "<leader>laz", ":Lazy<CR>", default_opts)
 map("n", "<leader>ra", ":Ranger<CR>", default_opts)
 map("n", "<leader>gg", ":LazyGit<CR>", default_opts)
