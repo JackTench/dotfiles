@@ -109,6 +109,10 @@ floating_layout = layout.Floating(
         Match(title = "pinentry"),
         # Prism Launcher's download/progress dialog.
         Match(wm_class = "org.prismlauncher.PrismLauncher", title = re.compile(r"^Please wait\.\.\.")),
+        # Steam's friends list.
+        Match(wm_class = "steam", title = "Friends List"),
+        # Thunar's dialogs (Properties, file operation progress, etc.), but not its main windows.
+        Match(wm_class = "thunar", title = re.compile(r"^(?!.* - Thunar$)")),
         *(Match(wm_class = wm_class) for wm_class in float_wm_classes),
     ]
 )
