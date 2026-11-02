@@ -11,6 +11,7 @@ from libqtile.backend.wayland import InputConfig
 
 from cols import rosepine
 from floating import float_rules
+from functions import unminimize_all
 from screens import screens
 
 # Run script to handle autostart.
@@ -43,6 +44,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc = "Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc = "Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc = "Reset all window sizes"),
+    Key([mod], "g", unminimize_all(), desc = "Restore all windows in group"),
 
     Key([mod], "w", lazy.window.toggle_floating(), desc = "Toggle window floating"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc = "Toggle window fullscreen"),
